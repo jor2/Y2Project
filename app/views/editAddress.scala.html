@@ -1,0 +1,43 @@
+@(editAddressForm: Form[models.users.EditAddress], user: models.users.Customer, name : String)
+<!-- addProductForm defined above is the parameter
+ passed to this view by the controller -->
+@import models.users._
+
+  <!-- a 'helper' will be used to create the form dynamically,
+though a static HTML form would also work -->
+@import helper._
+
+  <!-- The page will be based on the main template -->
+@main(name, user, "") {
+
+  <h3>@name</h3>
+
+    <!-- Use the views.html.helpers package to create the form -->
+  @form(action = routes.ProductCtrl.editAddressSubmit(), 'class -> "form-horizontal", 'role->"form", 'enctype -> "multipart/form-data") {
+
+    <!-- Build the form, adding an input for each field -->
+    <!-- Note the label parameter -->
+    @inputText(editAddressForm("street1"), '_label -> "Street 1",'class -> "form-control")
+    @inputText(editAddressForm("street2"), '_label -> "Street 2",'class -> "form-control")
+    @inputText(editAddressForm("town"), '_label -> "Town",'class -> "form-control")
+    @inputText(editAddressForm("postCode"), '_label -> "Post Code",'class -> "form-control")
+
+    <!-- Checkboxes for categories - current categories for this product are checked -->
+    <!-- Category.options provides a hashmap of value, name pairs -->
+
+
+    <!-- Image upload input -->
+
+  <br><br>
+
+    <!-- Add a submit button -->
+  <div class="actions">
+    <input type="submit" value="Create Account" class="btn btn-primary">
+    <a href="@routes.ProductCtrl.index()">
+      <button class="btn btn-warning">Cancel</button>
+    </a>
+  </div>
+  <hr>
+} <!-- End Form definition -->
+
+  } <!-- End of page content -->

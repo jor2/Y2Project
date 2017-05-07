@@ -1,0 +1,23 @@
+body {
+	font-family:Verdana, Arial, sans-serif;
+	background-color: #928DAB;
+}
+
+.contact{
+    font-size:2.5em;
+    margin-top:1em;
+}
+
+.img-responsive{
+    width:20em;
+    border:.20em solid #C04848;
+}
+
+.btn-primary2 {
+  padding:1em;
+  border: .20em solid white;
+  width:81.5em;
+  color: #fff;
+  background-color: #C04848;
+  border-color: white;
+}

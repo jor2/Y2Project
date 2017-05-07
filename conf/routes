@@ -1,0 +1,74 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# https://www.playframework.com/documentation/2.5.1/JavaRouting
+# Home page
+GET		/   						        controllers.ProductCtrl.index()
+
+# Show a list of products - note optional parameter
+GET     /listProducts                       controllers.ProductCtrl.listProducts(cat:Long?= 0, filter?="")
+
+# Login form
+GET		/login						        controllers.security.LoginCtrl.login()
+POST	/login						        controllers.security.LoginCtrl.loginSubmit()
+GET     /logout                             controllers.security.LoginCtrl.logout()
+
+# An example controller showing a sample home page
+GET     /action                             controllers.ProductCtrl.action()
+GET     /earlyaccess                        controllers.ProductCtrl.early()
+GET     /exploration                        controllers.ProductCtrl.explore()
+GET     /fps                                controllers.ProductCtrl.fps()
+GET     /openworld                          controllers.ProductCtrl.openWorld()
+GET     /rpg                                controllers.ProductCtrl.rpg()
+GET     /simulation                         controllers.ProductCtrl.simulation()
+GET     /sports                             controllers.ProductCtrl.sports()
+GET     /strategy                           controllers.ProductCtrl.strategy()
+GET     /deals                              controllers.ProductCtrl.deals()
+GET     /genre                              controllers.ProductCtrl.genre()
+GET     /register                           controllers.ProductCtrl.addUser()
+GET     /registerAccount                    controllers.ProductCtrl.addUserSubmit()
+GET     /review                             controllers.ProductCtrl.addReview()
+GET     /submitReview                       controllers.ProductCtrl.addReviewSubmit()
+GET     /contactus                          controllers.ProductCtrl.addMessage()
+GET     /submitIssue                        controllers.ProductCtrl.addMessageSubmit()
+GET     /results                            controllers.ProductCtrl.searchResult(cat:Long?= 0, filter?="")
+GET     /creditCard                         controllers.ProductCtrl.creditCard()
+GET     /addCreditCard                      controllers.ProductCtrl.addCreditCardSubmit()
+GET     /reviews/:id                        controllers.ProductCtrl.getReviews(id:Long)
+GET     /editAddress                        controllers.ProductCtrl.editAddress()
+GET     /addressEdited                      controllers.ProductCtrl.editAddressSubmit()
+
+# Shopping
+GET     /showBasket                         controllers.ShoppingCtrl.showBasket()
+GET     /showBasket/loyalty                 controllers.ShoppingCtrl.loyaltyPoints()
+GET     /orderHistory                       controllers.ShoppingCtrl.getOrders()
+GET     /addToBasket/:id                    controllers.ShoppingCtrl.addToBasket(id: Long)
+GET     /addOne/:itemId                     controllers.ShoppingCtrl.addOne(itemId: Long)
+GET     /removeOne/:itemId                  controllers.ShoppingCtrl.removeOne(itemId: Long)
+GET     /emptyBasket                        controllers.ShoppingCtrl.emptyBasket()
+GET     /placeOrder                         controllers.ShoppingCtrl.placeOrder()
+GET     /viewOrder/:id                      controllers.ShoppingCtrl.viewOrder(id: Long)
+GET     /cancelOrder/:id                    controllers.ShoppingCtrl.cancelOrder(id: Long)
+
+# Product Administration
+GET		/Admin						        controllers.AdminProductCtrl.index()
+
+GET     /Admin/listProducts                 controllers.AdminProductCtrl.listProducts(cat: Long = 0)
+GET     /Admin/listProducts/:cat            controllers.AdminProductCtrl.listProducts(cat: Long)
+
+GET		/Admin/addProduct					controllers.AdminProductCtrl.addProduct()
+POST	/Admin/addProductSubmit				controllers.AdminProductCtrl.addProductSubmit()
+
+GET		/Admin/updateProduct/:id			controllers.AdminProductCtrl.updateProduct(id:Long)
+POST	/Admin/updateProductSubmit/:id		controllers.AdminProductCtrl.updateProductSubmit(id:Long)
+
+GET     /Admin/delProduct/:id               controllers.AdminProductCtrl.deleteProduct(id:Long)
+GET     /Admin/restockProduct/:id           controllers.AdminProductCtrl.restockProduct(id:Long)
+GET     /Admin/restockAllProducts           controllers.AdminProductCtrl.restockAllProducts()
+
+GET     /Admin/issues                      controllers.AdminProductCtrl.getMessages()
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file                       controllers.Assets.versioned(path="/public", file: Asset)

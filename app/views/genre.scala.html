@@ -1,0 +1,129 @@
+@import models.users._
+@(filter: String, user: models.users.Customer, name : String)
+
+@main(name, user, filter) {
+<!-- Page Content -->
+<div class="row">
+
+<div class="col-md-3">
+<div class="list-group">
+    <a href="@routes.ProductCtrl.sports()" style=color:red class="list-group-item"><b>Sports Games</b></a>
+    <a href="@routes.ProductCtrl.rpg()" style=color:red class="list-group-item"><b>Role Playing Games (RPG)</b></a>
+    <a href="@routes.ProductCtrl.fps()" style=color:red class="list-group-item"><b>First Person Shooter Games (FPS)</b></a>
+    <a href="@routes.ProductCtrl.openWorld()" style=color:red class="list-group-item"><b>Open World Games</b></a>
+    <a href="@routes.ProductCtrl.action()" style=color:red class="list-group-item"><b>Action</b></a>
+    <a href="@routes.ProductCtrl.explore()" style=color:red class="list-group-item"><b>Exploration</b></a>
+    <a href="@routes.ProductCtrl.strategy()" style=color:red class="list-group-item"><b>Strategy</b></a>
+    <a href="@routes.ProductCtrl.simulation()" style=color:red class="list-group-item"><b>Simulation</b></a>
+    <a href="@routes.ProductCtrl.early()" style=color:red class="list-group-item"><b>Early Access</b></a>
+</div>
+</div>
+
+<div class="col-md-9">
+
+<div class="row carousel-holder">
+
+    <div class="col-md-6">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <a href="@routes.ProductCtrl.openWorld()"><li data-target="https://images-na.ssl-images-amazon.com/images/I/915vV-zIhmL._SL1500_.jpg" data-slide-to="0" class="active"></li></a>
+                <a href="@routes.ProductCtrl.sports()"><li data-target="https://assets.vg247.com/current//2016/04/nba_2k17_legend_edition_ps4_cover_1.jpg" data-slide-to="1"></li></a>
+                <a href="@routes.ProductCtrl.openWorld()"><li data-target="http://images.pushsquare.com/games/ps4/mafia_iii/cover_large.jpg" data-slide-to="2"></li></a>
+                <a href="@routes.ProductCtrl.explore()"><li data-target="http://vignette3.wikia.nocookie.net/egamia/images/7/70/No-Mans-Sky_cover.jpg/revision/latest?cb=20160715212330" data-slide-to="3"></li></a>
+                <a href="@routes.ProductCtrl.action()"><li data-target="http://assets.vg247.com/current//2014/07/dishonored_2_darkness_of_tyvia_full.jpg" data-slide-to="4"></li></a>
+                <a href="@routes.ProductCtrl.strategy()"><li data-target="https://justcheapgames.com/wp-content/uploads/2016/08/Civ_6_Cover_Photo.jpg" data-slide-to="5"></li></a>
+                <a href="@routes.ProductCtrl.simulation()"><li data-target="http://images.pushsquare.com/games/ps4/farming_simulator_17/cover_large.jpg" data-slide-to="6"></li></a>
+                <a href="@routes.ProductCtrl.sports()"><li data-target="http://gearnuke.com/wp-content/uploads/2016/06/fifa-17-box-art.jpg" data-slide-to="7"></li></a>
+                <a href="@routes.ProductCtrl.rpg()"><li data-target="http://cdn.cgmagonline.com/wp-content/uploads/2015/05/cover-ps4-the-witcher-3-wild-hunt.jpg" data-slide-to="8"></li></a>
+                <a href="@routes.ProductCtrl.sports()"><li data-target="https://images-na.ssl-images-amazon.com/images/I/816M5LfZtCL._SL1500_.jpg" data-slide-to="9"></li></a>
+                <a href="@routes.ProductCtrl.fps()"><li data-target="http://thetrashcan.co/wp-content/uploads/2016/05/overwatch-cover.jpg" data-slide-to="10"></li></a>
+                <a href="@routes.ProductCtrl.fps()"><li data-target="https://static-ie.gamestop.ie/images/products/240065/3max.jpg" data-slide-to="11"></li></a>
+                <a href="@routes.ProductCtrl.openWorld()"><li data-target="http://s3.thcdn.com/productimg/600/600/11276280-9474396707044424.jpg" data-slide-to="12"></li></a>
+                <a href="@routes.ProductCtrl.openWorld()"><li data-target="https://static-ie.gamestop.ie/images/products/246730/3max.jpg" data-slide-to="13"></li></a>
+                <a href="@routes.ProductCtrl.rpg()"><li data-target="https://static-ie.gamestop.ie/images/products/251726/3max.jpg" data-slide-to="14"></li></a>
+                <a href="@routes.ProductCtrl.rpg()"><li data-target="https://static-ie.gamestop.ie/images/products/239016/3max.jpg" data-slide-to="15"></li></a>
+                <a href="@routes.ProductCtrl.rpg()"><li data-target="https://static-ie.gamestop.ie/images/products/246097/3max.jpg" data-slide-to="16"></li></a>
+                <a href="@routes.ProductCtrl.action()"><li data-target="https://static-ie.gamestop.ie/images/products/252468/3max.jpg" data-slide-to="17"></li></a>
+                <a href="@routes.ProductCtrl.strategy()"><li data-target="https://static-ie.gamestop.ie/images/products/246932/3max.jpg" data-slide-to="18"></li></a>
+                <a href="@routes.ProductCtrl.strategy()"><li data-target="https://static-ie.gamestop.ie/images/products/246369/3max.jpg" data-slide-to="19"></li></a>
+                <a href="@routes.ProductCtrl.sports()"><li data-target="http://images.pushsquare.com/games/ps4/f1_2016/cover_large.jpg" data-slide-to="20"></li></a>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img class="slide-image" src="https://images-na.ssl-images-amazon.com/images/I/915vV-zIhmL._SL1500_.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="slide-image" src="https://assets.vg247.com/current//2016/04/nba_2k17_legend_edition_ps4_cover_1.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="slide-image" src="http://images.pushsquare.com/games/ps4/mafia_iii/cover_large.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="slide-image" src="http://vignette3.wikia.nocookie.net/egamia/images/7/70/No-Mans-Sky_cover.jpg/revision/latest?cb=20160715212330" alt="">
+                </div>
+                <div class="item">
+                    <img class="slide-image" src="http://assets.vg247.com/current//2014/07/dishonored_2_darkness_of_tyvia_full.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="slide-image" src="https://justcheapgames.com/wp-content/uploads/2016/08/Civ_6_Cover_Photo.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="slide-image" src="http://images.pushsquare.com/games/ps4/farming_simulator_17/cover_large.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="slide-image" src="http://gearnuke.com/wp-content/uploads/2016/06/fifa-17-box-art.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="slide-image" src="http://cdn.cgmagonline.com/wp-content/uploads/2015/05/cover-ps4-the-witcher-3-wild-hunt.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="slide-image" src="https://images-na.ssl-images-amazon.com/images/I/816M5LfZtCL._SL1500_.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="slide-image" src="http://thetrashcan.co/wp-content/uploads/2016/05/overwatch-cover.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="slide-image" src="http://s3.thcdn.com/productimg/600/600/11276280-9474396707044424.jpg" alt="">
+                </div>
+            
+                <div class="item">
+                    <img class="slide-image" src="https://static-ie.gamestop.ie/images/products/246730/3max.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="slide-image" src="https://static-ie.gamestop.ie/images/products/251726/3max.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="slide-image" src="https://static-ie.gamestop.ie/images/products/239016/3max.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="slide-image" src="https://static-ie.gamestop.ie/images/products/246097/3max.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="slide-image" src="https://static-ie.gamestop.ie/images/products/252468/3max.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="slide-image" src="https://static-ie.gamestop.ie/images/products/246932/3max.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="slide-image" src="https://static-ie.gamestop.ie/images/products/246369/3max.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="slide-image" src="https://static-ie.gamestop.ie/images/products/253266/3max.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="slide-image" src="http://images.pushsquare.com/games/ps4/f1_2016/cover_large.jpg" alt="">
+                </div>
+            </div>
+            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+        </div>
+    </div>
+
+</div>
+<br>
+<hr>
+}

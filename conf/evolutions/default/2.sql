@@ -1,0 +1,107 @@
+# --- Sample dataset
+
+# --- !Ups
+
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'Fifa 17', 'Play football as your favorite team!', 100,69.99, 'https://www.youtube.com/watch?v=yYjD78X1d9Q');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'Rocket League','Soccer-Car game',50,19.99, 'https://www.youtube.com/watch?v=NC82dWrFqCE');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'Overwatch Origins Edition','Competitive Shooter',5,49.99, 'https://www.youtube.com/watch?v=FqnKB22pOC0');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'Grand Theft Auto V','Lots of fun with friends!',45,49.99, 'https://www.youtube.com/watch?v=hvoD7ehZPcM');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'Call Of Duty: Infinite Warfare','Shooter',25,69.99, 'https://www.youtube.com/watch?v=EeF3UTkCoxY');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'The Witcher 3: Wild Hunt','Latest of Witcher Franchise',12,39.99, 'https://www.youtube.com/watch?v=xt_65k-gv1U');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'Watch Dogs 2','Latest Watch Dogs',50,69.99, 'https://www.youtube.com/watch?v=2GIVVsTKTLg');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'Minecraft','Craft',45,14.99, 'https://www.youtube.com/watch?v=MmB9b5njVbA');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'Goat Simulator','Play as a goat!',5,9.99, 'https://www.youtube.com/watch?v=dvWGLcdI8o8');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'NBA 2K16','BasketBall Game',10,69.99, 'https://www.youtube.com/watch?v=T2BytGdeekA');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'Battlefield 4','BF4 FPS',30,69.99, 'https://www.youtube.com/watch?v=hl-VV9loYLw');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'H1Z1','Survive!',50,19.99, 'https://www.youtube.com/watch?v=_1SSMKlpgL8');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'NHL 16','Hockey game',75,49.99, 'https://www.youtube.com/watch?v=IDumJG4RXt8');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'Civilisation VI','Ultimate Strategy Game!',15,29.99, 'https://www.youtube.com/watch?v=5KdE0p2joJw');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'Farming Simulator 17','Play as a farmer!',5,24.99, 'https://www.youtube.com/watch?v=OE-sKkdFgaE');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'Dishonored II','Latest of franchise',15,49.99, 'https://www.youtube.com/watch?v=UnsDyv-TtJg');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'No Mans Sky','Complete Failure',50,29.99, 'https://www.youtube.com/watch?v=aozqa_7PLhE');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'F1 2016','Racing!',75, 49.99, 'https://www.youtube.com/watch?v=DPeA453SAhs');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'Madden 17','NFL game',30,69.99, 'https://www.youtube.com/watch?v=VEmQEFCBp2c');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'Final Fantasy XV','Latest of a franchise',50,79.99, 'https://www.youtube.com/watch?v=SZymd6r4wGg');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'Deus Ex','Fun Solo',30,49.99, 'https://www.youtube.com/watch?v=CfV01sTqB68');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'The Technomancer','Fun game',50,39.99, 'https://www.youtube.com/watch?v=yaMVPgCryJ8');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'Dark Souls III','Third of a franchise',75,49.99, 'https://www.youtube.com/watch?v=oX0cvtjKt9E');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'Doom','Great comeback for a classic FPS!',50,44.99, 'https://www.youtube.com/watch?v=RO90omga8D4');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'Homefront: The Revolution','Second of a disappointing franchise',25,39.99, 'https://www.youtube.com/watch?v=mJgtdf-Kd_Y');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'Mafia III','Third of a disappointing franchise',65,69.99, 'https://www.youtube.com/watch?v=j6dgC5RMXRs');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'Tom Clancys: The Division','Fun Survival game with the friends!',70,49.99, 'https://www.youtube.com/watch?v=uElsBflqgYw');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'Fallout 4','Great game to play when free time is available!',50,39.99, 'https://www.youtube.com/watch?v=GE2BkLqMef4');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'Hitman','Disappointing...', 35, 44.99, 'https://www.youtube.com/watch?v=LVqxMCZ3u6k');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'Mirrors Edge: Catalyst','Fun game when bored',30,39.99, 'https://www.youtube.com/watch?v=r6GQEtUREWY');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'Uncharted 4: A Thiefs End','Fun action game with great storytelling!',100,59.99, 'https://www.youtube.com/watch?v=hh5HV4iic1Y');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'Tom Clancys: Rainbow Six Siege','Good shooter of 2016!',75,49.99, 'https://www.youtube.com/watch?v=KlbLLRdg9u8');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'FarCry Primal','Disappointment for farcry series!',50,49.99, 'https://www.youtube.com/watch?v=LJ2iH57Fs3M');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'Crackdown 3','Fun game when nothing else to do!',25,59.99, 'https://www.youtube.com/watch?v=Ge3PQ2nQM4Q');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'Total War: Warhammer','Fun game when nothing else to do!',10,34.99, 'https://www.youtube.com/watch?v=HyU_1-Py0dA');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'American Truck Simulator','Play a game as a truck!',45,14.99, 'https://www.youtube.com/watch?v=Yu32OisFgWI');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'White Noise 2','Horror!',20,14.99, 'https://www.youtube.com/watch?v=Px41fglWYCY');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'Subsistence','Fun game when nothing else to do!',20,24.99, 'https://www.youtube.com/watch?v=r2wXF28xf4g');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'Titanfall 2','Latest Titanfall shooter!',24,59.99, 'https://www.youtube.com/watch?v=EXwdWuSuiYA');
+insert into product (id,name, description,stock,price,trailer) values ( product_seq.nextval,'XCOM 2','Following the popular XCOM original game!',70,59.99, 'https://www.youtube.com/watch?v=jVf-lCVYI6k');
+
+insert into category(id, name) values (1, 'Action');
+insert into category(id, name) values (2, 'Early Access');
+insert into category(id, name) values (3, 'Exploration');
+insert into category(id, name) values (4, 'First Person Shooter');
+insert into category(id, name) values (5, 'Open World');
+insert into category(id, name) values (6, 'Role Playing Game');
+insert into category(id, name) values (7, 'Simulation');
+insert into category(id, name) values (8, 'Sports');
+insert into category(id, name) values (9, 'Strategy');
+insert into category(id, name) values (10, 'Deals');
+
+insert into category_product (category_id,product_id) values (8,1);
+insert into category_product (category_id,product_id) values (8,2);
+insert into category_product (category_id,product_id) values (4,3);
+insert into category_product (category_id,product_id) values (5,4);
+insert into category_product (category_id,product_id) values (4,5);
+insert into category_product (category_id,product_id) values (6,6);
+insert into category_product (category_id,product_id) values (5,7);
+insert into category_product (category_id,product_id) values (3,8);  
+insert into category_product (category_id,product_id) values (7,9);
+insert into category_product (category_id,product_id) values (8,10);
+insert into category_product (category_id,product_id) values (4,11);
+insert into category_product (category_id,product_id) values (2,12);
+insert into category_product (category_id,product_id) values (8,13);
+insert into category_product (category_id,product_id) values (9,14);
+insert into category_product (category_id,product_id) values (10,40);
+insert into category_product (category_id,product_id) values (7,15);  
+insert into category_product (category_id,product_id) values (1,16);
+insert into category_product (category_id,product_id) values (3,17);
+insert into category_product (category_id,product_id) values (8,18);
+insert into category_product (category_id,product_id) values (8,19);
+insert into category_product (category_id,product_id) values (6,20);
+insert into category_product (category_id,product_id) values (6,21);
+insert into category_product (category_id,product_id) values (10,21);
+insert into category_product (category_id,product_id) values (6,22);
+insert into category_product (category_id,product_id) values (6,23);  
+insert into category_product (category_id,product_id) values (4,24);
+insert into category_product (category_id,product_id) values (10,24);
+insert into category_product (category_id,product_id) values (4,25);
+insert into category_product (category_id,product_id) values (5,26);
+insert into category_product (category_id,product_id) values (5,27);
+insert into category_product (category_id,product_id) values (5,28);
+insert into category_product (category_id,product_id) values (1,29);
+insert into category_product (category_id,product_id) values (1,30);
+insert into category_product (category_id,product_id) values (10,30);
+insert into category_product (category_id,product_id) values (1,31);  
+insert into category_product (category_id,product_id) values (1,32);
+insert into category_product (category_id,product_id) values (3,33);
+insert into category_product (category_id,product_id) values (3,34);
+insert into category_product (category_id,product_id) values (9,35);
+insert into category_product (category_id,product_id) values (7,36);
+insert into category_product (category_id,product_id) values (2,37);
+insert into category_product (category_id,product_id) values (10,37);
+insert into category_product (category_id,product_id) values (2,38);
+insert into category_product (category_id,product_id) values (4,39);  
+insert into category_product (category_id,product_id) values (9,40);
+
+insert into user (email,name,password,role) values ('admin@products.com', 'Alice Admin', 'password', 'admin');
+insert into user (email,name,password,role,street1,town,post_code) values ('customer@products.com', 'Charlie Customer', 'password', 'customer', '16 Ryan Road', 'Tallaght', '23');
+insert into user (email,name,password,role,street1,town,post_code) values ('jordan@products.com', 'Jordan Williams', 'password', 'customer', '29 Rowlagh Avenue', 'Clondalkin', '22');
+
+insert into credit_card(id, customer_email, type, num, exp_date) values (credit_card_seq.nextval, 'jordan@products.com', 'Visa', '4388576018410707', '2019/04/10')

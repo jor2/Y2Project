@@ -1,0 +1,200 @@
+@(title: String, user: models.users.Customer, filter: String)(content: Html)
+
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="icon" href="http://www.wtw.waw.pl/files/page/znaki/logo%20wtw.JPG">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>@title</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="@routes.Assets.versioned("/css/bootstrap.min.css")" rel="stylesheet">
+    
+
+    <!-- Custom CSS -->
+    <link href="@routes.Assets.versioned("/css/1-col-portfolio.css")" rel="stylesheet">
+    <link href="@routes.Assets.versioned("/css/index.css")" rel="stylesheet">
+    <link href="@routes.Assets.versioned("/css/genre.css")" rel="stylesheet">
+    <link href="@routes.Assets.versioned("/css/contact.css")" rel="stylesheet">
+    
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="@routes.ProductCtrl.index()">WTW Gaming</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu
+                        <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="@routes.ProductCtrl.genre()">Browse by Genre</a>
+                            </li>
+                            <li>
+                                <a href="@routes.ProductCtrl.deals()">Deals</a>
+                            </li>
+                            <li
+                                @if(title == "Login"){class="active"}>
+                                <a href="@routes.ProductCtrl.listProducts(0)">Products</a>
+                            </li>
+                            <li>
+                                @if(user != null) {
+                                    <a href="@routes.ProductCtrl.addReview()">Review a Game</a>
+                                }
+                            </li>
+                            <li>
+                                <a href="@routes.ProductCtrl.addMessage()">Contact Us</a>
+                            </li>
+                            <li>
+                                @if(user != null) {
+                                    <a href="@routes.ShoppingCtrl.getOrders()">Order History</a>
+                                }
+                            </li>
+                            <!-- Login/ Logout  Link - Check if user logged in-->
+                            <li>
+                                @if(user == null) {
+                                    <a href="@controllers.security.routes.LoginCtrl.login()">Login</a>
+                                }
+                            </li>
+                            <li>
+                                @if(user == null) {
+                                    <a href="@routes.ProductCtrl.addUser()">Register</a>
+                                }
+                            </li>
+                        </ul>
+
+                    <!-- Basket -->
+                    <li>
+                        <a href="@routes.ShoppingCtrl.showBasket()"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+                    </li>
+
+                    @if(user != null) {
+                        <ul class="nav navbar-nav navbar-right" style="padding-left:4.5em">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                    <strong>My Account</strong>
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <div class="navbar-login">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <p class="text-center"><strong>Username:</strong><br> @user.getName()</p>
+                                                    <p class="text-center small"><strong>Email:</strong><br> @user.getEmail()</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="divider navbar-login-session-bg"></li>
+                                    <li style="font-size:.9em"><a href="@routes.ProductCtrl.editAddress()">Edit Address<span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+                                    <li style="font-size:.9em"><a href="@routes.ProductCtrl.creditCard()">Add Credit Card<span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+                                    <li style="font-size:.9em"><a href="@controllers.security.routes.LoginCtrl.logout()">Sign Out<span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    }
+                    <!-- Search Form -->
+                    <div class="col-sm-6 col-md-5 pull-right" style="padding-left:15.5em">
+                        <form class="navbar-form" role="search" action="@routes.ProductCtrl.searchResult(0)" method="GET">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="filter" style="margin-right: 10em" value="@filter" placeholder="Search...">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <div class="container">
+
+        @* And here's where we render the `Html` object containing
+         * the page content. *@
+        @content
+
+        <!-- Pagination -->
+        <div class="row text-center">
+            <div class="col-lg-12">
+                <ul class="pagination">
+                    <li>
+                        <a href="@routes.ProductCtrl.addMessage()">&laquo;</a>
+                    </li>
+                    <li class="active">
+                        <a href="@routes.ProductCtrl.index()">Home</a>
+                    </li>
+                    <li>
+                        <a href="@routes.ProductCtrl.genre()">Browse by Genre</a>
+                    </li>
+                    <li>
+                        <a href="@routes.ProductCtrl.deals()">Deals</a>
+                    </li>
+                    <li>
+                        <a href="@routes.ProductCtrl.addMessage()">Contact Us</a>
+                    </li>
+                    <li>
+                        <a href="@routes.ProductCtrl.genre()">&raquo;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p style="text-align:center"><b>Copyright &copy; WTW Gaming</b></p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="@routes.Assets.versioned("/js/jquery.js")"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="@routes.Assets.versioned("/js/bootstrap.min.js")"></script>
+
+</body>
+
+</html>

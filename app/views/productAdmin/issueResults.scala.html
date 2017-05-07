@@ -1,0 +1,34 @@
+@import models.users.User
+@import models.users.ContactUs
+@import models.users.Administrator
+@(env: play.api.Environment, admin: Administrator, messages: List[ContactUs], name : String)
+
+<!-- Pass page title and content {html between braces} to the main view -->
+@productAdmin.main(name, admin) {
+  @if(admin.getMessages().size()>0){
+    <!-- Page Heading -->
+    <div class="row">
+      <h2 style="text-align: center; color: #B0290D;"><b>@name</b></h2>
+    </div>
+      <!-- /.row -->
+    <hr>
+
+      <!-- Project One -->
+    <h3 class="text-center"></h3>
+    @for(m <- messages) {
+      <div class="row">
+        <div class="col-md-12" style="border: .20em solid black; background-color: white">
+          <p style="border-bottom: .01em solid black; text-align:center; font-size:1.5em; color:blue">Issue Number: @m.getId | Issue raised by: @m.getCustomer.getName | Issue Date: @m.getMessageDate</p>
+          <p style="text-align:center; font-size:1.5em">@m.getMessage</p>
+        </div>
+      </div>
+      <hr>
+    }
+  } else{
+    <div class="row">
+      <h2 style="text-align: center; color: #B0290D;"><b>There are currently no issues raised!</b></h2>
+    </div>
+    <hr>
+  }
+  <br>
+}

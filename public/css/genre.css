@@ -1,0 +1,29 @@
+body {
+	font-family:Verdana, Arial, sans-serif;
+	background-color: #928DAB;
+}
+
+.slide-image{
+    width:30em;
+}
+
+.col-md-6{
+    margin-left:15em;
+    padding-bottom:2em;
+}
+
+.list-group-item{
+    text-align:center;
+    padding-bottom:2em;
+    text-decoration: underline;
+}
+
+.btn-primary3 {
+  padding:1em;
+  border: .20em solid white;
+  width:60.5em;
+  color: #fff;
+  background-color: #C04848;
+  border-color: white;
+}
+

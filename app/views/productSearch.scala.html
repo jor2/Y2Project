@@ -1,0 +1,56 @@
+@import models.products.Category
+@import models.products.Product
+@import models.users._
+@(env: play.api.Environment, products: List[Product], catId: Long, filter: String, user: Customer, name : String)
+
+<!-- Pass page title and content {html between braces} to the main view -->
+@main(name, user, filter) {
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header" style="text-align:center">@name!</h1>
+    </div>
+</div>
+<!-- /.row -->
+
+@if(filter.equals("")){
+    <div class="row">
+            <h2 style="text-align: center; color: #B0290D;"><b>Invalid Search. Please try again!</b></h2>
+        </div>
+    <hr>
+} else{
+    <div class="row">
+        <h2 style="text-align: center; color: #B0290D;"><b>Search results: @products.size()</b></h2>
+        </div>
+    <hr>
+<!-- Project One -->
+    @for(p <- products) {
+        <div class="row">
+            <div class="col-md-5">
+                <!-- Display each product field value in a column -->
+                <a href="@routes.ProductCtrl.listProducts(6, filter)">
+                @if(env.resource("public/images/productImages/thumbnails/" + p.getId + ".jpg").isDefined) {
+                    <img class="img-responsive" src="/assets/images/productImages/@(p.getId + ".jpg")" alt="">
+                } else {
+                    <img class="img-responsive" src="/assets/images/productImages/noImage.png"/>
+                }
+                </a>
+            </div>
+            <div class="col-md-7">
+                <h3>@p.getName</h3>
+                <p>@p.getDescription</p>
+                <a class="btn btn-success" href="@routes.ShoppingCtrl.addToBasket(p.getId)">€@p.getPrice<span class="glyphicon glyphicon-chevron-right"></span></a>
+                @if(p.getTrailer() != ""){
+                    <a class="btn btn-danger" value="Open popup" onclick="window.open('@p.getTrailer')">Trailer<span class="glyphicon glyphicon-chevron-right"></span></a>
+                }
+                @if(p.getReviews().size()>0){
+                    <a class="btn btn-success" href="@routes.ProductCtrl.getReviews(p.getId)">Reviews<span class="glyphicon glyphicon-chevron-right"></span></a>
+                }
+            </div>
+        </div>
+
+        <hr>
+    }
+}
+<br>
+}

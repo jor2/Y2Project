@@ -1,0 +1,111 @@
+@(customer: models.users.Customer, name : String)
+
+@import play.api.Play.resource
+@import play.api.Play.current
+@import models.shopping._
+@import models.products._
+
+<!-- Pass page title and user on to main -->
+@main(name, customer, "") {
+
+
+<div class="row">
+
+	<div class="col-md-12">
+		@if(flash.containsKey("success")) {
+			  <div class="alert alert-success">
+			      @flash.get("success")
+			  </div>
+		}
+
+        @if(customer.getBasket().getBasketItems.size() == 0) {
+            <h2 style="text-align: center;
+                color: #B0290D;">@name</h2>
+        } else{
+            @if(customer.getBasket().getBasketItems.size() != 0) {
+                <table class="table table-bordered table-hover table-condensed">
+                    <thead>
+                            <!-- The header row-->
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Item Price</th>
+                            <th>Total</th>
+                            <th>Quantity</th>
+                            <th>dec.</th>
+                            <th>inc.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <!-- Start of For loop - For each p in products add a row -->
+                        @for(i <- customer.getBasket().getBasketItems()) {
+                            <tr>
+                                <td>@i.getProduct.getName</td>
+                                <td>@i.getProduct.getDescription()</td>
+                                <td>&euro;
+                                    @("%.2f".format(i.getPrice))</td>
+                                <td>&euro;
+                                    @("%.2f".format(i.getItemTotal))</td>
+                                <td>@i.getQuantity()</td>
+                                <td><a href="@routes.ShoppingCtrl.removeOne(i.getId)"><span class="glyphicon glyphicon-minus-sign"></span></a></td>
+                                <td><a href="@routes.ShoppingCtrl.addOne(i.getId)"><span class="glyphicon glyphicon-plus-sign"></span></a></td>
+                            </tr>
+                        }<!-- End of For loop -->
+                    </tbody>
+                </table>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="text-right"><strong>
+                            Basket Total: &euro; @("%.2f".format(customer.getBasket.getBasketTotal()))</strong>
+                        </p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-3">
+                        <p class="text-left">
+                            <a href="@routes.ShoppingCtrl.placeOrder()" class="btn btn-success btn-sm">
+                                <span class="glyphicon glyphicon-euro"></span> Place Order</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p class="text-left">
+                            <a href="@routes.ShoppingCtrl.emptyBasket()" class="btn btn-danger btn-sm" onclick="return confirmDel();">
+                                <span class="glyphicon glyphicon-trash"></span> Empty Basket</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p class="text-right">
+                            <a href="@controllers.routes.ProductCtrl.creditCard()" class="btn btn-warning btn-sm">
+                                <span class="glyphicon glyphicon-credit-card"></span> Add Payment Method</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p class="text-right">
+                            <a href="@controllers.routes.ShoppingCtrl.loyaltyPoints()" class="btn btn-success btn-sm">
+                                <span class="glyphicon glyphicon-credit-card"></span> Points: @customer.getPoints</a>
+                        </p>
+                        
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <p class="text-center">
+                            <a href="@routes.ProductCtrl.listProducts(0)" class="btn btn-success btn-sm">
+                                <span class="glyphicon glyphicon-book"></span> Return to Products Page</a>
+                        </p>
+                        
+            }
+        }
+    </div>
+</div>
+<hr>
+
+<script>
+	// JavaScript function returns true if user clicks yes, otherwise, false
+	function confirmDel() {
+		return confirm('Are you sure?');
+	}
+</script>
+}

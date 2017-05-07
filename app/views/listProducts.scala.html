@@ -1,0 +1,89 @@
+@import models.products.Category
+@import models.products.Product
+@import models.users._
+@(env: play.api.Environment, categories: List[Category], products: List[Product], catId: Long, filter: String, user: Customer)
+
+
+<!-- Pass page title and user on to main -->
+@main("Products Page", user, filter) {
+
+	<style>
+		form {
+			margin-bottom: 1em;
+		}
+	</style>
+
+	<div class="row">
+
+	  <div class="col-md-3">
+	<div class="list-group">
+			<!-- Start of For loop - For each c in categories add a link -->
+			<a href="@routes.ProductCtrl.listProducts(0, filter)" class="list-group-item">All categories</a>
+			@for(c <- categories) {
+				<a href="@routes.ProductCtrl.listProducts(c.getId, filter)" class="list-group-item">@c.getName</a>
+			}
+	</div>
+	  </div>
+
+		<div class="col-md-9">
+			@if(flash.containsKey("success")) {
+				  <div class="alert alert-success">
+					  @flash.get("success")
+				  </div>
+			}
+
+			<!-- Search Form -->
+			<div id="actions">
+			 	<form action="@routes.ProductCtrl.listProducts(catId)" method="GET">
+					<input type="search" id="searchbox" name="filter" value="@filter" placeholder="Enter product name...">
+					<input type="submit" id="searchsubmit" value="Search" class="btn-md btn-primary">
+			 	</form>
+			</div>
+
+			<table class="table table-bordered table-hover table-condensed">
+				<thead>
+				<!-- The header row-->
+				<tr>
+					<th></th>
+					<th>Name</th>
+					<th>Description</th>
+					<th style="padding-right: 5em;">Stock</th>
+					<th>Price</th>
+					<th>Buy</th>
+					<th>Reviews</th>
+				</tr>
+				</thead>
+				<tbody>
+					<!-- Start of For loop - For each p in products add a row -->
+					@for(p <- products) {
+					<tr>
+						<!-- Display each product field value in a column -->
+						@if(env.resource("public/images/productImages/thumbnails/" + p.getId + ".jpg").isDefined) {
+							<td><img src="/assets/images/productImages/thumbnails/@(p.getId).jpg"/></td>
+						} else {
+							<td><img src="/assets/images/productImages/thumbnails/noImage.png"/></td>
+						}
+						<td>@p.getName</td>
+						<td>@p.getDescription</td>
+						@if(p.getStock<=10 && p.getStock!=0){
+							<td>Low Stock - @p.getStock</td>
+						} else {
+							@if(p.getStock==0){
+								<td>Out Of Stock!</td>
+							} else {
+								<td>High Stock</td>
+							}
+						}
+						<td>&euro;@("%,.2f".format(p.getPrice))</td>
+						<td><a href="@routes.ShoppingCtrl.addToBasket(p.getId)"  class="btn btn-default btn-xs"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
+						<td><a href="@routes.ProductCtrl.getReviews(p.getId)"  class="btn btn-default btn-xs"><span class="glyphicon glyphicon-comment"></span></a></td>
+					</tr>
+					} <!-- End of For loop -->
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+    <hr>
+}

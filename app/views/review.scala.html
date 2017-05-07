@@ -1,0 +1,48 @@
+@(addReviewForm: Form[models.products.Review], user: models.users.Customer, name: String)
+<!-- addProductForm defined above is the parameter
+ passed to this view by the controller -->
+@import models.users._
+@import models.products._
+
+  <!-- a 'helper' will be used to create the form dynamically,
+though a static HTML form would also work -->
+@import helper._
+
+  <!-- The page will be based on the main template -->
+@main(name, user, "") {
+
+  <h3>Add a Product Review</h3>
+
+    <!-- Use the views.html.helpers package to create the form -->
+  @form(action = routes.ProductCtrl.addReviewSubmit(), 'class -> "form-horizontal", 'role->"form", 'enctype -> "multipart/form-data") {
+
+    <!-- Build the form, adding an input for each field -->
+    <!-- Note the label parameter -->
+    @select(
+      addReviewForm("product.id"),
+
+      options(Product.options),
+      '_label -> "Product", '_default -> "-- Choose a product --",
+      '_showConstraints -> false, 'class -> "form-control"
+    )
+    @textarea(addReviewForm("review"), args = 'rows -> 5, 'cols -> 50, '_label -> "Review (Max 250 words)",'class -> "form-control")
+
+    <!-- Checkboxes for categories - current categories for this product are checked -->
+    <!-- Category.options provides a hashmap of value, name pairs -->
+
+
+    <!-- Image upload input -->
+
+  <br><br>
+
+    <!-- Add a submit button -->
+  <div class="actions">
+    <input type="submit" value="Publish Review" class="btn btn-primary">
+    <a href="@routes.ProductCtrl.index()">
+      <button class="btn btn-warning">Cancel</button>
+    </a>
+  </div>
+  <hr>
+} <!-- End Form definition -->
+
+}

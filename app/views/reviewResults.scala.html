@@ -1,0 +1,35 @@
+@import models.products.Category
+@import models.products.Product
+@import models.users._
+@import models.products.Review
+@(env: play.api.Environment, product: Product, reviews: List[Review], user: Customer, name : String)
+
+<!-- Pass page title and content {html between braces} to the main view -->
+@main(name, user, "") {
+  @if(product.getReviews.size()>0){
+    <!-- Page Heading -->
+    <div class="row">
+      <h2 style="text-align: center; color: #B0290D;"><b>@product.getName @name</b></h2>
+    </div>
+      <!-- /.row -->
+    <hr>
+
+      <!-- Project One -->
+    <h3 class="text-center"></h3>
+    @for(p <- reviews) {
+      <div class="row">
+        <div class="col-md-12" style="border: .20em solid black; background-color: white">
+          <p style="border-bottom: .01em solid black; text-align:center; font-size:1.5em; color:blue">Review Number: @p.getId | Review made by: @p.getCustomer.getName | Review Date: @p.getReviewDate</p>
+          <p style="text-align:center; font-size:1.5em">@p.getReview</p>
+        </div>
+      </div>
+      <hr>
+    }
+  } else{
+    <div class="row">
+      <h2 style="text-align: center; color: #B0290D;"><b>There are currently no reviews!</b></h2>
+    </div>
+
+  }
+  <br>
+}
